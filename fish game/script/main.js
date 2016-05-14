@@ -127,5 +127,4 @@ restart.addEventListener("click",function(){
 	tip.style.display="none";
 	runGame();
 },false);
-moreGame.addEventListener("click",function)
 runGame();
