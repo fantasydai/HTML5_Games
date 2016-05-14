@@ -4,6 +4,7 @@
 }
 body{
 	padding-top: 10px;
+	position:relative;
 }
 .all_bg{
 	width:800px;
@@ -27,4 +28,30 @@ body{
 	bottom:0;
 	left:0;
 	z-index: 0;
+}
+div#tip{
+	position:absolute;
+	width:300px;
+	left:calc(50% - 100px);
+	top:350px;
+	z-index: 999;
+	display: none;
+}
+div#tip button{
+	width:100px;
+	height:40px;
+	border:none;
+	border-radius: 5px;
+	background:rgba(255,255,255,0.7);
+	cursor:pointer;
+	outline: none;
+
+}
+div#tip button:active{
+	position:relative;
+	top:1px;
+}
+div#tip button a{
+	text-decoration: none;
+	color:#000;
 }

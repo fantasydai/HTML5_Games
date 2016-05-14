@@ -1,4 +1,4 @@
-var sonFish=function(){
+var SonFish=function(){
 	this.x;
 	this.y;
 	this.angle;
@@ -14,13 +14,13 @@ var sonFish=function(){
 	this.babyBodyTimer=0;
 	this.babyBodyCount=0;
 };
-sonFish.prototype.init=function(){
+SonFish.prototype.init=function(){
 	this.x=canvWidth*0.5-50;
 	this.y=canvHeight*0.5+50;
 	this.angle=0;
 	this.babyBody.src="./images/babyFade0.png";
 };
-sonFish.prototype.draw=function(){
+SonFish.prototype.draw=function(){
 	//lerp x,y
 	this.x=lerpDistance(momFish.x,this.x,0.98);
 	this.y=lerpDistance(momFish.y,this.y,0.98);
@@ -57,6 +57,7 @@ sonFish.prototype.draw=function(){
 		if(this.babyBodyCount>19){
 			this.babyBodyCount=19;
 			//game over
+			dataObj.gameOver=true;
 		}
 	}
 	//ctx1

@@ -3,6 +3,7 @@ var fruitObj=function(){
 	this.x=[];
 	this.y=[];
 	this.l=[];
+	this.algaNo=[];
 	this.speed=[];
 	this.fruitType=[];
 	this.orange=new Image();
@@ -16,6 +17,7 @@ fruitObj.prototype.init=function(){
 		this.y[i]=0;
 		this.speed[i]=Math.random()*0.017+0.003;
 		this.l[i]=0;
+		this.algaNo[i]=0;
 		this.fruitType[i]="";
 	}
 	this.orange.src="./images/fruit.png";
@@ -33,11 +35,16 @@ fruitObj.prototype.draw=function(){
 				pic=this.orange;
 			}
 			if(this.l[i]<=14){
-				this.l[i]+=0.01*deltaTime;
+				this.x[i]=alga.headX[this.algaNo[i]];
+				this.y[i]=alga.headY[this.algaNo[i]];
+				this.l[i]+=this.speed[i]*deltaTime;//果实成长
+				//果实随海带摆动
+				ctx2.drawImage(pic,this.x[i]-this.l[i]*0.5,this.y[i]-this.l[i]*0.5,this.l[i],this.l[i]);
+
 			}else{
 				this.y[i]-=this.speed[i]*7*deltaTime;
+				ctx2.drawImage(pic,this.x[i]-this.l[i]*0.5,this.y[i]-this.l[i]*0.5,this.l[i],this.l[i]);
 			}
-			ctx2.drawImage(pic,this.x[i]-this.l[i]*0.5,this.y[i]-this.l[i]*0.5,this.l[i],this.l[i]);
 			if(this.y[i]<10){
 				this.alive[i]=false;
 			}
@@ -46,9 +53,7 @@ fruitObj.prototype.draw=function(){
 	}
 };
 fruitObj.prototype.born=function(i){
-	var algaId=Math.floor(Math.random()*alga.num);
-	this.x[i]=alga.x[algaId];
-	this.y[i]=canvHeight-alga.len[i];
+	this.algaNo[i]=Math.floor(Math.random()*alga.num);
 	this.l[i]=0;
 	this.alive[i]=true;
 	var ran=Math.random();

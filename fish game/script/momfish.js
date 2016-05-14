@@ -1,4 +1,4 @@
-var momFish=function(){
+var MomFish=function(){
 	this.x;
 	this.y;
 	this.angle;
@@ -13,13 +13,13 @@ var momFish=function(){
 
 	this.momBodyCount=0;
 };
-momFish.prototype.init=function(){
+MomFish.prototype.init=function(){
 	this.x=canvWidth*0.5;
 	this.y=canvHeight*0.5;
 	this.angle=0;
 	this.bigBody.src="./images/bigSwim0.png";
 };
-momFish.prototype.draw=function(){
+MomFish.prototype.draw=function(){
 	//lerpx,y
 	this.x=lerpDistance(mx,this.x,0.95);
 	this.y=lerpDistance(my,this.y,0.95);

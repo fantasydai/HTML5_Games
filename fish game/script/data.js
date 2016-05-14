@@ -1,18 +1,33 @@
-var dataObj=function(){
+var DataObj=function(){
 	this.fruitNum=0;
 	this.double=1;
 	this.score=0;
+	this.gameOver=false;
+	this.alpha=0;
 };
-dataObj.prototype.reset=function(){
+DataObj.prototype.reset=function(){
 	this.fruitNum=0;
 	this.double=1;
 };
-dataObj.prototype.draw=function(){
+DataObj.prototype.draw=function(){
 	var wid=canv1.width;
 	var hei=canv1.height;
+	ctx1.save();
 	ctx1.fillStyle="white";
-	ctx1.fillText("score "+this.score,wid*0.5,hei-20);
+	ctx1.shadowBlur=10;
+	ctx1.shadowColor="#fff";
+	ctx1.fillText("SCORE: "+this.score,wid*0.5,hei-20);
+	if(this.gameOver){
+		this.alpha+=deltaTime*0.0003;
+		if(this.alpha>1){
+			this.alpha=1;
+		}
+		ctx1.fillStyle="rgba(255,255,255,"+this.alpha+")";
+		ctx1.fillText("GameOver",wid*0.5,hei*0.5);
+		tip.style.display="block";
+	}
+	ctx1.restore();
 };
-dataObj.prototype.addScore=function(){
+DataObj.prototype.addScore=function(){
 	this.score+=this.fruitNum*100*this.double;
-}
+};

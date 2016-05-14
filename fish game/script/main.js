@@ -14,13 +14,19 @@ var canv1,
       mx,
       my,
       dataObj,
+      wave,
+      dust,//漂浮物
+      dustPic=[],
       babyTail=[],
       babyEye=[],
       babyBody=[],
       momTail=[],
       momEye=[],
       momBodyOra=[],
-      momBodyBlue=[];
+      momBodyBlue=[],
+      tip=document.getElementById("tip"),
+      restart=document.getElementById("restart"),
+      moreGame=document.getElementById("moreGames");
 function runGame(){
 	init();
 	lastTime=Date.now();
@@ -44,17 +50,27 @@ function init(){
 	alga.init();
 	fruit=new fruitObj();
 	fruit.init();
-	momFish=new momFish();
+	momFish=new MomFish();
 	momFish.init();
-	sonFish=new sonFish();
+	sonFish=new SonFish();
 	sonFish.init();
-	dataObj=new dataObj();
+	dataObj=new DataObj();
 
+	wave=new Wave();
+	wave.init();
+
+	dust=new Dust();
+	dust.init();
 	mx=canvWidth*0.5;
 	my=canvHeight*0.5;
 	//设置画布中分数字体和位置
 	ctx1.font="30px Verdana";
 	ctx1.textAlign="center";
+	//dustPic遍历
+	for(var i=0;i<7;i++){
+		dustPic[i]=new Image();
+		dustPic[i].src="./images/dust"+i+".png";
+	}
 	for(var i=0;i<8;i++){
 		babyTail[i]=new Image();
 		momTail[i]=new Image();
@@ -96,11 +112,20 @@ function gameloop(){
 	momBabyCollision();
 	sonFish.draw();
 	dataObj.draw();
+	wave.draw();
+	dust.draw();
 }
 function mouseMove(e){
-	if(e.offsetX||e.layerX){
-		mx=e.offsetX==undefined?e.layerX:e.offsetX;
-		my=e.offsetY==undefined?e.layerY:e.offsetY;
+	if(!dataObj.gameOver){
+		if(e.offsetX||e.layerX){
+			mx=e.offsetX==undefined?e.layerX:e.offsetX;
+			my=e.offsetY==undefined?e.layerY:e.offsetY;
+		}
 	}
 }
+restart.addEventListener("click",function(){
+	tip.style.display="none";
+	runGame();
+},false);
+moreGame.addEventListener("click",function)
 runGame();
