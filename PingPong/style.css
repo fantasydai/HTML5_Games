@@ -1,0 +1,71 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+header{
+	text-align: center;
+	margin: 50px 0;
+}
+#container{
+	margin:0 auto;
+	width:500px;
+	font-family: "SimHei";
+	color:#000;
+	font-size: 20px;
+}
+#scoreboard .score{
+	float:left;
+	margin:0 50px 30px 50px;
+}
+#form{
+	clear:both;
+	margin-bottom: 30px;
+}
+#form label{
+	margin-left: 50px;
+}
+#pattern{
+	height:25px;
+	margin-right: 100px;
+}
+#play{
+	width:100px;
+	height:40px;
+	border:none;
+	border-radius: 5px;
+	outline: none;
+	background:#e0ffe0;
+	font-size: 20px;
+	cursor:pointer;
+}
+#play:active{
+	position:relative;
+	top:1px;
+}
+#playground{
+	background:#e0ffe0;
+	width:500px;
+	height:300px;
+	position: relative;
+	overflow: hidden;
+}
+#ball{
+	background:#fbb;
+	position:absolute;
+	width:20px;
+	height:20px;
+	left:250px;
+	top:150px;
+	border-radius: 10px;
+}
+.paddle{
+	background:#bbf;
+	left:50px;
+	top:70px;
+	position:absolute;
+	width:30px;
+	height:70px;
+}
+#paddleB{
+	left:420px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ping Pong</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"  href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Ping Pong</h1>
+	</header>
+	<div id="container">
+		<div id="form">
+			<label for="pattern">难度:</label>
+			<select id="pattern">
+				<option>Easy</option>
+				<option>Normal</option>
+				<option>Hard</option>
+			</select>
+			<input id="play" value="Start" type="button">
+		</div>
+		<div id="scoreboard">
+			<div class="score">PlayerA : <span id="scoreA">0</span></div>
+			<div class="score">PlayerB : <span id="scoreB">0</span></div>
+		</div>
+		<div id="game">
+			<div id="playground">
+				<div id="paddleA" class="paddle"></div>
+				<div id="paddleB" class="paddle"></div>
+				<div id="ball"></div>
+			</div>
+		</div>
+	</div>
+	<script src="script/jquery.js"></script>
+	<script src="script/main.js"></script>
+</body>
+</html>
