@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>纸牌配对游戏</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<body>
+	<header>
+		<h1>CSS3 纸牌配对游戏</h1>
+	</header>
+		<form>
+			<label for="pattern">难度:</label>
+			<select id="pattern">
+				<option>Easy</option>
+				<option>Normal</option>
+				<option>Hard</option>
+			</select>
+		</form>
+
+	<section id="game">
+		<div id="cards">
+			<div class="card">
+				<div class="face front"></div>
+				<div class="face back"></div>
+			</div>
+		</div>
+	</section>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+* {
+	margin: 0;
+	padding:0;
+}
+header{
+	margin: 30px 0 30px 0;
+}
+body {
+	text-align: center;
+	background:#a46740 url(./images/bg.jpg);
+	font-family: 'Tangerine', serif;
+	color:#fff;
+}
+form{
+	clear:both;
+	margin-bottom: 10px;
+}
+form label{
+	margin:0 10px 0 50px;
+	font-size: 20px;
+}
+#pattern{
+	height:25px;
+	margin-right: 100px;
+}
+#game {
+	border-radius: 10px;
+	border:1px solid #666;
+	background:#232 url(./images/table.jpg);
+	width:500px;
+	height:460px;
+	margin:0 auto;
+	display: box;
+	box-pack:center;
+	box-align:center;
+}
+#cards {
+	position:relative;
+	width:380px;
+	height:400px;
+	margin:0 auto;
+}
+.card {
+	-webkit-perspective:600;
+	width:80px;
+	height:120px;
+	position:absolute;
+	transition:all .3s;
+}
+.face {
+	border-radius: 10px;
+	width:100%;
+	height:100%;
+	position:absolute;
+	transition-preperty:opacity,transform,box-shadow;
+	-webkit-transition-duration: .3s;
+	-webkit-backface-visibility:hidden;
+}
+.front {
+	background:#999 url(./images/deck.png) 0 -480px;
+	z-index:10;
+}
+.back {
+	background:#efefef url(./images/deck.png);
+	-webkit-transform:rotate3d(0,1,0,-180deg);
+	z-index: 8;
+}
+.card:hover .face, .card-flipped .front {
+	box-shadow: 0 0 10px #aaa;
+}
+.card-flipped .front {
+	-webkit-transform:rotate3d(0,1,0,180deg);
+	z-index: 8;
+}
+.card-flipped .back {
+	-webkit-transform:rotate3d(0,1,0,0deg);
+	z-index: 10;
+}
+.card-removed {
+	opacity:0;
+}
+.cardAK { background-position: -960px 0; }
+.cardAQ { background-position: -880px 0;}
+.cardAJ { background-position: -800px 0;}
+.cardATen{ background-position: -720px 0;}
+.cardBK { background-position: -960px -120px; }
+.cardBQ { background-position: -880px -120px; }
+.cardBJ{ background-position: -800px -120px; }
+.cardBTen{ background-position: -720px -120px; }
+.cardCK { background-position: -960px -240px; }
+.cardCQ { background-position: -880px -240px; }
+.cardCJ { background-position: -800px -240px; }
+.cardCTen { background-position: -720px -240px; }
